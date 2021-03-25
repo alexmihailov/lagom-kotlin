@@ -1,0 +1,105 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.witcher.lagom</groupId>
+    <artifactId>lagom-kotlin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>hello-api</module>
+        <module>hello-impl</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <java.compiler.source>1.8</java.compiler.source>
+        <java.compiler.target>1.8</java.compiler.target>
+
+        <scala.binary.version>2.13</scala.binary.version>
+
+        <lagom.service>false</lagom.service>
+        <lagom.cassandra.enabled>false</lagom.cassandra.enabled>
+        <lagom.kafka.enabled>false</lagom.kafka.enabled>
+        <lagom.service.locator.enabled>true</lagom.service.locator.enabled>
+
+        <lagom.version>1.6.4</lagom.version>
+        <play.version>2.8.2</play.version>
+        <play.repository.version>0.1.0</play.repository.version>
+        <h2.version>1.4.197</h2.version>
+        <hibernate.version>5.4.22.Final</hibernate.version>
+
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.compiler.source}</source>
+                    <target>${java.compiler.target}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.lightbend.lagom</groupId>
+                <artifactId>lagom-maven-plugin</artifactId>
+                <version>${lagom.version}</version>
+                <configuration>
+                    <lagomService>${lagom.service}</lagomService>
+                    <cassandraEnabled>${lagom.cassandra.enabled}</cassandraEnabled>
+                    <kafkaEnabled>${lagom.kafka.enabled}</kafkaEnabled>
+                    <serviceLocatorEnabled>${lagom.service.locator.enabled}</serviceLocatorEnabled>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.lightbend.lagom</groupId>
+                <artifactId>lagom-maven-dependencies</artifactId>
+                <version>${lagom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.taymyr.play</groupId>
+                <artifactId>play-repository-jpa-java_${scala.binary.version}</artifactId>
+                <version>${play.repository.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.play</groupId>
+                <artifactId>play-jdbc-evolutions_${scala.binary.version}</artifactId>
+                <version>${play.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.play</groupId>
+                <artifactId>play-java-jpa_${scala.binary.version}</artifactId>
+                <version>${play.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jpamodelgen</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
