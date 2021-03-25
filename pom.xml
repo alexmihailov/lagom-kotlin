@@ -6,8 +6,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>hello-api</module>
-        <module>hello-impl</module>
+        <module>api</module>
+        <module>impl</module>
     </modules>
 
     <properties>

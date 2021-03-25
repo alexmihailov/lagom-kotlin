@@ -5,7 +5,7 @@
         <artifactId>lagom-kotlin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>hello-api</artifactId>
+    <artifactId>university-api</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
