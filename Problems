@@ -1,34 +1,55 @@
-Что дает использование Kotlin:
 
 1) Иммутабельные поля
 Пример Java: com.witcher.lagom.university.api.data.StudentData
+Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
 
-2) Иммутабельные коллекции
+2) Геттеры/Сеттеры и конструктор
+Пример Java: com.witcher.lagom.university.api.data.StudentData
+Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
+
+3) Иммутабельные коллекции
 Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.getStudents
+Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt
 
-3) Утилитарные классы
+4) Наследование по умолчанию открыто
+Пример Java: com.witcher.lagom.university.api.data.StudentData
+Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
+
+5) Утилитарные классы
 Пример Java: com.witcher.lagom.university.impl.converters.Converters
+Пример Kotlin: com.witcher.lagom.university.impl.converters.ConvertersKtKt.toStudentDataKt
 
-4) equals, hashCode, toString определенные по умолчанию - data классы
+6) equals, hashCode, toString определенные по умолчанию - data классы
 Пример Java: com.witcher.lagom.university.impl.persistence.students.StudentEntity
+Пример Kotlin:com.witcher.lagom.university.impl.persistence.students.StudentEntityKt
 
-5) Именованные параметры
+7) Именованные параметры и параметры по умолчанию
 Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
+Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt
 
-6) Контроль NPE на уровне языка
+8) Контроль NPE на уровне языка
 Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
+Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt.createStudent
 
-7) Функции расширения
+9) Функции расширения
 Пример Java: com.witcher.lagom.university.impl.converters.Converters.toStudentData
+Пример Kotlin: com.witcher.lagom.university.impl.converters.ConvertersKtKt.toStudentDataKt
 
-8) Умное приведение типов ???
+10) Умное приведение типов ???
 
 
-9) строковые шаблоны
+11) Cтроковые шаблоны
 Пример Java: com/witcher/lagom/university/impl/utils/Preconditions.java:14
+Пример Kotlin: com.witcher.lagom.university.impl.utils.PreconditionsKtKt.checkStringNotEmpty
 
-10) выведение типа
-Пример Java: com.witcher.lagom.university.impl.persistence.students.StudentEntity
+12) Выведение типа
+Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
+Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt.createStudent
 
-11) корутины и обработка исключений
+13) Singleton
+Пример Java: com.witcher.lagom.university.api.LocalDatePathParamSerializer
+Пример Kotlin: com.witcher.lagom.university.api.LocalDatePathParamSerializerKt
+
+13) Корутины и обработка исключений
 Пример Java: com.witcher.lagom.university.impl.UniversityServiceImpl.createStudent
+Пример Kotlin: com.witcher.lagom.university.impl.UniversityServiceImplKt

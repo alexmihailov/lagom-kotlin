@@ -10,6 +10,18 @@ import org.pcollections.TreePVector;
 
 public final class LocalDatePathParamSerializer implements PathParamSerializer<LocalDate> {
 
+    private static LocalDatePathParamSerializer serializer;
+
+    private LocalDatePathParamSerializer() {
+    }
+
+    public static LocalDatePathParamSerializer getInstance() {
+        if (serializer == null) {
+            serializer = new LocalDatePathParamSerializer();
+        }
+        return serializer;
+    }
+
     @Override
     public PSequence<String> serialize(LocalDate parameter) {
         return TreePVector.singleton(parameter.format(DateTimeFormatter.ISO_LOCAL_DATE));

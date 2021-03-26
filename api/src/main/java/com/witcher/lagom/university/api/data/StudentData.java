@@ -2,7 +2,7 @@ package com.witcher.lagom.university.api.data;
 
 import java.time.LocalDate;
 
-public class StudentData {
+public final class StudentData {
     private final String firstName;
     private final String middleName;
     private final String lastName;

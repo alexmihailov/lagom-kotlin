@@ -53,6 +53,6 @@ public interface UniversityService extends Service {
                     this::createStudent
             ))
             .withAutoAcl(true)
-            .withPathParamSerializer(LocalDate.class, new LocalDatePathParamSerializer());
+            .withPathParamSerializer(LocalDate.class, LocalDatePathParamSerializer.getInstance());
   }
 }
