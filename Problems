@@ -1,7 +1,7 @@
 Что дает использование Kotlin:
 
 1) Иммутабельные поля
-Пример Java: com.witcher.lagom.university.api.data.PersonData
+Пример Java: com.witcher.lagom.university.api.data.StudentData
 
 2) Иммутабельные коллекции
 Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.getStudents
