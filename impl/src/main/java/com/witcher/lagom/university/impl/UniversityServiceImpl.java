@@ -4,20 +4,20 @@ import akka.NotUsed;
 import com.google.inject.Inject;
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 import com.lightbend.lagom.javadsl.api.deser.ExceptionMessage;
-import com.lightbend.lagom.javadsl.api.transport.BadRequest;
 import com.lightbend.lagom.javadsl.api.transport.TransportErrorCode;
 import com.lightbend.lagom.javadsl.api.transport.TransportException;
 import com.witcher.lagom.university.api.data.StudentData;
 import com.witcher.lagom.university.impl.converters.Converters;
 import com.witcher.lagom.university.impl.services.students.StudentsService;
-import java.text.MessageFormat;
 import java.time.LocalDate;
 import com.witcher.lagom.university.api.UniversityService;
 import java.util.Optional;
-import org.apache.commons.lang3.StringUtils;
 import org.pcollections.PCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static com.witcher.lagom.university.impl.utils.Preconditions.checkNotNull;
+import static com.witcher.lagom.university.impl.utils.Preconditions.checkStringNotEmpty;
 
 /**
  * Implementation of the HelloService.
@@ -73,16 +73,5 @@ public class UniversityServiceImpl implements UniversityService {
     LOG.error("Error while executing request.", ex);
     throw new TransportException(TransportErrorCode.InternalServerError,
             new ExceptionMessage("InternalError", ex.getMessage()));
-  }
-
-  private static void checkStringNotEmpty(String value, String param) {
-    if (StringUtils.isBlank(value)) {
-      throw new BadRequest(MessageFormat.format("Parameter {0} must not be empty.", param));
-    }
-  }
-  private static <T> void checkNotNull(T value, String param) {
-    if (value == null) {
-      throw new BadRequest(MessageFormat.format("Parameter {0} must not be empty.", param));
-    }
   }
 }
