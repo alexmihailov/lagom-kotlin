@@ -60,7 +60,7 @@ public class StudentsRepository extends JPARepository<StudentEntity, Integer> {
     @SuppressWarnings("unchecked")
     public <T> CompletionStage<List<T>> findItemsByQuery(String jpaQuery, ImmutableMap<String, Object> parameters, Class<T> clazz) {
         return this.executeRO(em -> {
-            Query query = em.createQuery(jpaQuery);
+            Query query = em.createQuery(jpaQuery, clazz);
             for (Map.Entry<String, Object> entry : parameters.entrySet()) {
                 query.setParameter(entry.getKey(), entry.getValue());
             }
