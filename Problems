@@ -1,55 +1,38 @@
 
-1) Иммутабельные поля
-Пример Java: com.witcher.lagom.university.api.data.StudentData
-Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
+1) Контроль NPE на уровне языка
 
 2) Геттеры/Сеттеры и конструктор
-Пример Java: com.witcher.lagom.university.api.data.StudentData
-Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
 
-3) Иммутабельные коллекции
-Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.getStudents
-Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt
+3) Иммутабельные поля
 
-4) Наследование по умолчанию открыто
-Пример Java: com.witcher.lagom.university.api.data.StudentData
-Пример Kotlin: com.witcher.lagom.university.api.data.StudentDataKt
+4) Иммутабельные коллекции
 
-5) Утилитарные классы
-Пример Java: com.witcher.lagom.university.impl.converters.Converters
-Пример Kotlin: com.witcher.lagom.university.impl.converters.ConvertersKtKt.toStudentDataKt
+5) Наследование по умолчанию открыто
 
 6) equals, hashCode, toString определенные по умолчанию - data классы
-Пример Java: com.witcher.lagom.university.impl.persistence.students.StudentEntity
-Пример Kotlin:com.witcher.lagom.university.impl.persistence.students.StudentEntityKt
 
-7) Именованные параметры и параметры по умолчанию
-Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
-Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt
+7) Утилитарные классы
 
-8) Контроль NPE на уровне языка
-Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
-Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt.createStudent
+8) Именованные параметры и параметры по умолчанию
 
 9) Функции расширения
-Пример Java: com.witcher.lagom.university.impl.converters.Converters.toStudentData
-Пример Kotlin: com.witcher.lagom.university.impl.converters.ConvertersKtKt.toStudentDataKt
 
-10) Умное приведение типов ???
+10) Локальные функции
+
+11) Работа с generic типами, Inline функции и reified
+
+12) Свойства расширения
+
+12) Cтроковые шаблоны
+
+13) Выведение типа
+
+14) Singleton
+
+15) Асинхронное программирование - Корутины и обработка исключений
 
 
-11) Cтроковые шаблоны
-Пример Java: com/witcher/lagom/university/impl/utils/Preconditions.java:14
-Пример Kotlin: com.witcher.lagom.university.impl.utils.PreconditionsKtKt.checkStringNotEmpty
 
-12) Выведение типа
-Пример Java: com.witcher.lagom.university.impl.services.students.StudentsService.createStudent
-Пример Kotlin: com.witcher.lagom.university.impl.services.students.StudentsServiceKt.createStudent
 
-13) Singleton
-Пример Java: com.witcher.lagom.university.api.LocalDatePathParamSerializer
-Пример Kotlin: com.witcher.lagom.university.api.LocalDatePathParamSerializerKt
 
-13) Корутины и обработка исключений
-Пример Java: com.witcher.lagom.university.impl.UniversityServiceImpl.createStudent
-Пример Kotlin: com.witcher.lagom.university.impl.UniversityServiceImplKt
+
