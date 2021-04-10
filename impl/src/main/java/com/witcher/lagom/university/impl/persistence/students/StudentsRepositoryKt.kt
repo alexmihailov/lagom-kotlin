@@ -6,6 +6,7 @@ import org.taymyr.play.repository.infrastructure.persistence.DatabaseExecutionCo
 import org.taymyr.play.repository.infrastructure.persistence.JPARepository
 import play.db.jpa.JPAApi
 import java.time.LocalDate
+import javax.persistence.EntityManager
 
 class StudentsRepositoryKt @Inject constructor(jpaApi: JPAApi, context: DatabaseExecutionContext)
     : JPARepository<StudentEntityKt, Int>(jpaApi, context, StudentEntityKt::class.java) {
@@ -43,13 +44,16 @@ class StudentsRepositoryKt @Inject constructor(jpaApi: JPAApi, context: Database
                 parameters["group"] = group
             }
         }
-        return findItemsByQuery(query, parameters, StudentEntityKt::class.java)
+        return findItemsByQuery(query, parameters)
     }
 
-    suspend fun <T> findItemsByQuery(jpaQuery: String, parameters: Map<String, Any>, clazz: Class<T>): List<T> =
-        executeRO { em ->
-            val query = em.createQuery(jpaQuery, clazz)
+    suspend inline fun <reified T> findItemsByQuery(jpaQuery: String, parameters: Map<String, Any>): List<T> =
+        bridgeEm { em ->
+            val query = em.createQuery(jpaQuery, T::class.java)
             parameters.forEach { (key, value) -> query.setParameter(key, value) }
             query.resultList.toList()
         }.await()
+
+    @PublishedApi
+    internal fun <T> bridgeEm(function: (EntityManager) -> List<T>) = executeRO(function)
 }
